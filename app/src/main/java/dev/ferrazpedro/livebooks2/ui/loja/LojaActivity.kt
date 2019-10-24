@@ -7,10 +7,11 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import dev.ferrazpedro.livebooks2.R
-import dev.ferrazpedro.livebooks2.ui.loja.LojaViewModel
+import java.util.*
 
 class LojaActivity : AppCompatActivity() {
 
+    var pt_br : Locale = Locale("pt", "BR")
     private lateinit var recyclerView: RecyclerView
     private lateinit var viewAdapter: RecyclerView.Adapter<*>
     private lateinit var viewManager: RecyclerView.LayoutManager

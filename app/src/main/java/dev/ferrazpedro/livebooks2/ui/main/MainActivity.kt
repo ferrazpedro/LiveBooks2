@@ -4,7 +4,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
+import dev.ferrazpedro.livebooks.utils.AppSharedPreferences
 import dev.ferrazpedro.livebooks2.R
 import dev.ferrazpedro.livebooks2.api.BibliotecaAPI
 import dev.ferrazpedro.livebooks2.domain.model.Livros
@@ -15,8 +17,12 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.text.NumberFormat
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
+
+    var pt_br : Locale = Locale("pt", "BR")
 
     private val livroRepository = LivroRepositorio(BibliotecaAPI.api)
 
@@ -49,10 +55,24 @@ class MainActivity : AppCompatActivity() {
                 recyclerViewMain.adapter = adapter
             }
         }
-        
+
         iniBtnLoja()
+        checarPrimeiraVez()
     }
-    fun iniBtnLoja() {
+
+    fun checarPrimeiraVez() {
+
+        if (!AppSharedPreferences.pegarEstado(applicationContext)) {
+            AppSharedPreferences.darEstado(applicationContext, true)
+            AppSharedPreferences.darSaldo(applicationContext, 100.00f)
+            recyclerViewMain.visibility = View.GONE
+
+        } else {
+            var saldo = AppSharedPreferences.pegarSaldo((applicationContext))
+            saldoMenu.text = NumberFormat.getCurrencyInstance(pt_br).format(saldo)
+        }
+    }
+        fun iniBtnLoja() {
 
         botaoComprar.setOnClickListener {
 
