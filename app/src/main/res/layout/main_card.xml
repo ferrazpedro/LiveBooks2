@@ -16,7 +16,8 @@
             android:layout_height="250dp"
             android:background="@color/colorPrimary"
             android:scaleType="centerCrop"
-            cardview:layout_constraintTop_toTopOf="parent" />
+            cardview:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="Cover" />
 
         <TextView
             android:id="@+id/title"
