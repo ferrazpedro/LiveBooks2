@@ -3,6 +3,7 @@ package dev.ferrazpedro.livebooks2.ui.loja
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import dev.ferrazpedro.livebooks2.R
@@ -37,4 +38,11 @@ class LojaAdapter(
             .into(holder.itemView.thumbnailHd)
         //
     }
+
+    @set:BindingAdapter("isVisible")
+    inline var View.isVisible: Boolean
+        get() = visibility == View.VISIBLE
+        set(value) {
+            visibility = if (value) View.VISIBLE else View.GONE
+        }
 }

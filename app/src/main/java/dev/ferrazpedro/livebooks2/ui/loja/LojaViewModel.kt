@@ -1,18 +1,26 @@
 package dev.ferrazpedro.livebooks2.ui.loja
 
 import android.util.Log
+import androidx.databinding.ObservableField
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import dev.ferrazpedro.livebooks2.api.BibliotecaAPI
+import dev.ferrazpedro.livebooks2.api.IBibliotecaAPI
+import dev.ferrazpedro.livebooks2.api.LivroResposta
 import dev.ferrazpedro.livebooks2.domain.model.Livros
 import dev.ferrazpedro.livebooks2.domain.repository.LivroRepositorio
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import okhttp3.Response
 import java.lang.Exception
 
 class LojaViewModel : ViewModel() {
+
+    var loading = ObservableField<Boolean>(false)
+    var isError = ObservableField<Boolean>(false)
 
     private val repository: LivroRepositorio = LivroRepositorio(BibliotecaAPI.api)
     private val livros: MutableLiveData<List<Livros>> = MutableLiveData()
@@ -30,4 +38,22 @@ class LojaViewModel : ViewModel() {
         }
     }
 
+    val listaLivro =  MutableLiveData<dev.ferrazpedro.livebooks2.api.Response>()
+
+    fun carregaListaLivro(){
+
+        val controller = LivroRepositorio(BibliotecaAPI.api)
+
+        CoroutineScope(Dispatchers.IO).launch {
+
+            try {
+                val retrieved = controller.getListaLivro()
+                listaLivro.postValue(dev.ferrazpedro.livebooks2.api.Response.success(retrieved))
+
+            }
+            catch (e: Exception){
+                listaLivro.postValue(dev.ferrazpedro.livebooks2.api.Response.error(Throwable("")))
+            }
+        }
+    }
 }
