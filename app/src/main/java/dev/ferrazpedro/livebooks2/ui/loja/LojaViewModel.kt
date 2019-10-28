@@ -6,6 +6,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import dev.ferrazpedro.livebooks2.api.BibliotecaAPI
+import dev.ferrazpedro.livebooks2.api.LivroController
 import dev.ferrazpedro.livebooks2.domain.model.Livros
 import dev.ferrazpedro.livebooks2.domain.repository.LivroRepositorio
 import kotlinx.coroutines.CoroutineScope
@@ -16,6 +17,7 @@ import java.lang.Exception
 
 class LojaViewModel : ViewModel() {
 
+    private val livroController: LivroController? = null
     var loading = ObservableField<Boolean>(false)
     var isError = ObservableField<Boolean>(false)
 

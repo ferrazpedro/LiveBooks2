@@ -1,19 +1,14 @@
 package dev.ferrazpedro.livebooks2.ui.loja
 
-import android.content.DialogInterface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import dev.ferrazpedro.livebooks.utils.AppSharedPreferences
 import dev.ferrazpedro.livebooks2.R
 import dev.ferrazpedro.livebooks2.databinding.ActivityLojaBinding
-import kotlinx.android.synthetic.main.activity_main.*
-import java.text.NumberFormat
 import java.util.*
 
 class LojaActivity : AppCompatActivity() {
@@ -22,7 +17,6 @@ class LojaActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var viewAdapter: RecyclerView.Adapter<*>
     private lateinit var viewManager: RecyclerView.LayoutManager
-    private lateinit var adapter: LojaAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

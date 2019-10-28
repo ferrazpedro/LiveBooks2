@@ -7,5 +7,4 @@ interface IBibliotecaAPI {
 
     @GET("products.json")
     suspend fun getListaLivro(): Response<List<LivroResposta>>
-
 }
