@@ -11,7 +11,7 @@ import dev.ferrazpedro.livebooks2.domain.model.Livros
 import kotlinx.android.synthetic.main.item_card.view.*
 
 class LojaAdapter(
-    private val listaLivro: List<Livros>
+    val listaLivro: List<Livros>
 ) :
     RecyclerView.Adapter<LojaAdapter.MyViewHolder>() {
 
@@ -29,14 +29,15 @@ class LojaAdapter(
 
         val item = listaLivro[position]
 
-        holder.itemView.title.text = item.titulo
-        holder.itemView.writer.text = item.escritor
-        holder.itemView.price.text = item.preco.toString()
-        Picasso
-            .get()
-            .load(item.caminhoImagem)
-            .into(holder.itemView.thumbnailHd)
-        //
+        with(holder.itemView) {
+            title.text = item.titulo
+            writer.text = item.escritor
+            price.text = item.preco.toString()
+            Picasso
+                .get()
+                .load(item.caminhoImagem)
+                .into(thumbnailHd)
+        }
     }
 
     @set:BindingAdapter("isVisible")

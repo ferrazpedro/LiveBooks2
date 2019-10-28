@@ -35,7 +35,7 @@ class LojaViewModel : ViewModel() {
         }
     }
 
-    val listaLivro = MutableLiveData<dev.ferrazpedro.livebooks2.ui.loja.LojaResponse>()
+    val listaLivro = MutableLiveData<LojaResponse>()
 
     fun carregaListaLivro() {
 
@@ -46,14 +46,14 @@ class LojaViewModel : ViewModel() {
             try {
                 val retrieved = controller.getListaLivro()
                 listaLivro.postValue(
-                    dev.ferrazpedro.livebooks2.ui.loja.LojaResponse.success(
+                    LojaResponse.success(
                         retrieved
                     )
                 )
 
             } catch (e: Exception) {
                 listaLivro.postValue(
-                    dev.ferrazpedro.livebooks2.ui.loja.LojaResponse.error(
+                    LojaResponse.error(
                         Throwable(
                             ""
                         )

@@ -9,4 +9,5 @@
     <string name="mainTxtPrice">Preço:</string>
     <string name="price">R$0,00</string>
     <string name="comprar">Comprar</string>
+    <string name="error_pagina">Erro ao carregar. Aperte para recarregar a página.</string>
 </resources>
