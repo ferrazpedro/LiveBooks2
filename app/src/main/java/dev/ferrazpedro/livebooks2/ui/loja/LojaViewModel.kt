@@ -6,15 +6,12 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import dev.ferrazpedro.livebooks2.api.BibliotecaAPI
-import dev.ferrazpedro.livebooks2.api.IBibliotecaAPI
-import dev.ferrazpedro.livebooks2.api.LivroResposta
 import dev.ferrazpedro.livebooks2.domain.model.Livros
 import dev.ferrazpedro.livebooks2.domain.repository.LivroRepositorio
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import okhttp3.Response
 import java.lang.Exception
 
 class LojaViewModel : ViewModel() {
@@ -27,7 +24,7 @@ class LojaViewModel : ViewModel() {
 
     fun livros() = livros as LiveData<List<Livros>>
 
-    fun getTodos(){
+    fun getTodos() {
         GlobalScope.launch(context = Dispatchers.IO) {
 
             try {
@@ -38,9 +35,9 @@ class LojaViewModel : ViewModel() {
         }
     }
 
-    val listaLivro =  MutableLiveData<dev.ferrazpedro.livebooks2.api.Response>()
+    val listaLivro = MutableLiveData<dev.ferrazpedro.livebooks2.ui.loja.LojaResponse>()
 
-    fun carregaListaLivro(){
+    fun carregaListaLivro() {
 
         val controller = LivroRepositorio(BibliotecaAPI.api)
 
@@ -48,11 +45,20 @@ class LojaViewModel : ViewModel() {
 
             try {
                 val retrieved = controller.getListaLivro()
-                listaLivro.postValue(dev.ferrazpedro.livebooks2.api.Response.success(retrieved))
+                listaLivro.postValue(
+                    dev.ferrazpedro.livebooks2.ui.loja.LojaResponse.success(
+                        retrieved
+                    )
+                )
 
-            }
-            catch (e: Exception){
-                listaLivro.postValue(dev.ferrazpedro.livebooks2.api.Response.error(Throwable("")))
+            } catch (e: Exception) {
+                listaLivro.postValue(
+                    dev.ferrazpedro.livebooks2.ui.loja.LojaResponse.error(
+                        Throwable(
+                            ""
+                        )
+                    )
+                )
             }
         }
     }

@@ -12,10 +12,13 @@ import kotlinx.android.synthetic.main.item_card.view.*
 
 class MainAdapter {
 
-    class ColeçãoLivros (context: Context,
-                               private var listaLivro: List<Livros>): RecyclerView.Adapter<ColeçãoLivros.MyViewHolder>() {
+    class ColeçãoLivros(
+        context: Context,
+        private var listaLivro: List<Livros>
+    ) : RecyclerView.Adapter<ColeçãoLivros.MyViewHolder>() {
 
-        val mLayoutInflater: LayoutInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+        val mLayoutInflater: LayoutInflater =
+            context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
             val view = mLayoutInflater.inflate(R.layout.item_card, parent, false)
@@ -37,7 +40,7 @@ class MainAdapter {
             //
         }
 
-        inner class MyViewHolder(view: View): RecyclerView.ViewHolder(view)
+        inner class MyViewHolder(view: View) : RecyclerView.ViewHolder(view)
     }
 
 }

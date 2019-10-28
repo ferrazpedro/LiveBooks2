@@ -8,7 +8,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="15dp" >
+        android:layout_margin="15dp">
 
         <ImageView
             android:id="@+id/thumbnailHd"
@@ -69,13 +69,13 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnComprar"
             android:layout_width="125dp"
             android:layout_height="match_parent"
-            cardview:layout_constraintTop_toBottomOf="@id/prices"
+            android:text="@string/comprar"
             cardview:layout_constraintLeft_toLeftOf="parent"
             cardview:layout_constraintRight_toRightOf="parent"
-            android:id="@+id/btnComprar"
-            android:text="@string/comprar" />
+            cardview:layout_constraintTop_toBottomOf="@id/prices" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

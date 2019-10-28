@@ -19,7 +19,7 @@ import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
-    var pt_br : Locale = Locale("pt", "BR")
+    var pt_br: Locale = Locale("pt", "BR")
 
     private val livroRepository = LivroRepositorio(BibliotecaAPI.api)
 
@@ -68,7 +68,8 @@ class MainActivity : AppCompatActivity() {
             saldoMenu.text = NumberFormat.getCurrencyInstance(pt_br).format(saldo)
         }
     }
-        fun iniBtnLoja() {
+
+    fun iniBtnLoja() {
 
         botaoComprar.setOnClickListener {
 
