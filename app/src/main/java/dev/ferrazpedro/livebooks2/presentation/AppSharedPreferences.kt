@@ -24,7 +24,7 @@ class AppSharedPreferences {
             return prefs.getBoolean(ESTADO, false)
         }
 
-        fun darSaldo(context: Context, saldo: Double) {
+        fun darSaldo(context: Context, saldo: Float) {
             val prefs: SharedPreferences = context.getSharedPreferences(SALDO, Context.MODE_PRIVATE)
             val editor: SharedPreferences.Editor = prefs.edit()
             editor.putFloat(SALDO, saldo)

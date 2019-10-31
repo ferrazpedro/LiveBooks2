@@ -4,7 +4,7 @@ import java.util.*
 
 class Livros(
     val titulo: String,
-    val preco: Double,
+    val preco: Float,
     val escritor: String,
     val caminhoImagem: String,
     val data: Date

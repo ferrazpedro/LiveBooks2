@@ -19,7 +19,7 @@ class LivroController(private val livroRepository: LivroRepositorio) {
         return api.getListaLivro().body()?.map {
             Livros(
                 it.title ?: "",
-                it.price ?: 0.0,
+                it.price ?: 0.00f,
                 it.writer ?: "",
                 it.thumbnailHd ?: "",
                 Date()
