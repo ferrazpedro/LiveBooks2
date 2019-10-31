@@ -1,4 +1,4 @@
-package dev.ferrazpedro.livebooks2.domain.model
+package dev.ferrazpedro.livebooks2.domain.entities
 
 import java.util.*
 

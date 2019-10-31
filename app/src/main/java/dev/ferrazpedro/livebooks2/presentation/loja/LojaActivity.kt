@@ -1,4 +1,4 @@
-package dev.ferrazpedro.livebooks2.ui.loja
+package dev.ferrazpedro.livebooks2.presentation.loja
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

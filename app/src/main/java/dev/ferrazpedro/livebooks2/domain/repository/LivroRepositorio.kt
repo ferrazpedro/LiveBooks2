@@ -1,7 +1,7 @@
 package dev.ferrazpedro.livebooks2.domain.repository
 
-import dev.ferrazpedro.livebooks2.api.IBibliotecaAPI
-import dev.ferrazpedro.livebooks2.domain.model.Livros
+import dev.ferrazpedro.livebooks2.data.api.IBibliotecaAPI
+import dev.ferrazpedro.livebooks2.domain.entities.Livros
 import java.util.*
 
 class LivroRepositorio(private val api: IBibliotecaAPI) {

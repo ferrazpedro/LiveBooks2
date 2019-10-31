@@ -1,4 +1,4 @@
-package dev.ferrazpedro.livebooks2.api
+package dev.ferrazpedro.livebooks2.data.api
 
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit

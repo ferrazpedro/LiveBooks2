@@ -1,6 +1,6 @@
-package dev.ferrazpedro.livebooks2.api
+package dev.ferrazpedro.livebooks2.domain.use_case
 
-import dev.ferrazpedro.livebooks2.domain.model.Livros
+import dev.ferrazpedro.livebooks2.domain.entities.Livros
 import dev.ferrazpedro.livebooks2.domain.repository.LivroRepositorio
 
 class LivroController(private val livroRepository: LivroRepositorio) {

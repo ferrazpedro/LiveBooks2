@@ -7,14 +7,14 @@
 
         <variable
             name="LojaModel"
-            type="dev.ferrazpedro.livebooks2.ui.loja.LojaViewModel" />
+            type="dev.ferrazpedro.livebooks2.presentation.loja.LojaViewModel" />
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".ui.loja.LojaActivity">
+        tools:context=".presentation.loja.LojaActivity">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/barraTopo"

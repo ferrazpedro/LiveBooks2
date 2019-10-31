@@ -1,13 +1,14 @@
-package dev.ferrazpedro.livebooks2.ui.loja
+package dev.ferrazpedro.livebooks2.presentation.loja
 
 import android.util.Log
 import androidx.databinding.ObservableField
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import dev.ferrazpedro.livebooks2.api.BibliotecaAPI
-import dev.ferrazpedro.livebooks2.api.LivroController
-import dev.ferrazpedro.livebooks2.domain.model.Livros
+import dev.ferrazpedro.livebooks2.data.api.BibliotecaAPI
+import dev.ferrazpedro.livebooks2.domain.use_case.LivroController
+import dev.ferrazpedro.livebooks2.data.api.Response
+import dev.ferrazpedro.livebooks2.domain.entities.Livros
 import dev.ferrazpedro.livebooks2.domain.repository.LivroRepositorio
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -37,7 +38,7 @@ class LojaViewModel : ViewModel() {
         }
     }
 
-    val listaLivro = MutableLiveData<LojaResponse>()
+    val listaLivro = MutableLiveData<Response>()
 
     fun carregaListaLivro() {
 
@@ -48,14 +49,14 @@ class LojaViewModel : ViewModel() {
             try {
                 val retrieved = controller.getListaLivro()
                 listaLivro.postValue(
-                    LojaResponse.success(
+                    Response.success(
                         retrieved
                     )
                 )
 
             } catch (e: Exception) {
                 listaLivro.postValue(
-                    LojaResponse.error(
+                    Response.error(
                         Throwable(
                             ""
                         )

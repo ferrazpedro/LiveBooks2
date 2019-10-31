@@ -1,4 +1,4 @@
-package dev.ferrazpedro.livebooks2.ui.loja
+package dev.ferrazpedro.livebooks2.presentation.loja
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,7 +7,7 @@ import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import dev.ferrazpedro.livebooks2.R
-import dev.ferrazpedro.livebooks2.domain.model.Livros
+import dev.ferrazpedro.livebooks2.domain.entities.Livros
 import kotlinx.android.synthetic.main.item_card.view.*
 
 class LojaAdapter(

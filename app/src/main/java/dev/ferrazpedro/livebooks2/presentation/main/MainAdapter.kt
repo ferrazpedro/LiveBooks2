@@ -1,4 +1,4 @@
-package dev.ferrazpedro.livebooks2.ui.main
+package dev.ferrazpedro.livebooks2.presentation.main
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import dev.ferrazpedro.livebooks2.R
-import dev.ferrazpedro.livebooks2.domain.model.Livros
+import dev.ferrazpedro.livebooks2.domain.entities.Livros
 import kotlinx.android.synthetic.main.item_card.view.*
 
 class MainAdapter {

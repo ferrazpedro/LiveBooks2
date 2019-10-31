@@ -1,4 +1,4 @@
-package dev.ferrazpedro.livebooks2.api
+package dev.ferrazpedro.livebooks2.data.model
 
 class LivroResposta(
     val title: String?,

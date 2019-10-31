@@ -1,5 +1,6 @@
-package dev.ferrazpedro.livebooks2.api
+package dev.ferrazpedro.livebooks2.data.api
 
+import dev.ferrazpedro.livebooks2.data.model.LivroResposta
 import retrofit2.Response
 import retrofit2.http.GET
 
