@@ -1,27 +1,15 @@
 package dev.ferrazpedro.livebooks2.domain.repository
 
+import dev.ferrazpedro.livebooks2.data.api.BibliotecaAPI
 import dev.ferrazpedro.livebooks2.data.api.IBibliotecaAPI
-import dev.ferrazpedro.livebooks2.domain.entities.Livros
-import java.util.*
+import dev.ferrazpedro.livebooks2.data.model.LivroResposta
+import retrofit2.Response
 
-class LivroRepositorio(private val api: IBibliotecaAPI) {
+class LivroRepositorio {
 
-    suspend fun getListaLivro(): List<Livros> {
+    private val api: IBibliotecaAPI = BibliotecaAPI.api
 
-        val response = api.getListaLivro()
-
-        if (!response.isSuccessful)
-            throw Throwable(response.errorBody()?.string())
-
-        return api.getListaLivro().body()?.map {
-            Livros(
-                it.title ?: "",
-                it.price ?: 0.0,
-                it.writer ?: "",
-                it.thumbnailHd ?: "",
-                Date()
-            )
-        } ?: listOf()
-
+    suspend fun getLivros(): Response<List<LivroResposta>> {
+        return api.getListaLivro()
     }
 }

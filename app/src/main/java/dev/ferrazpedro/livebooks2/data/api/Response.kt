@@ -39,4 +39,6 @@ class Response(
             )
         }
     }
+
+    fun isSuccessfull() = this.status == Status.SUCCESS
 }

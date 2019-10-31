@@ -8,12 +8,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import dev.ferrazpedro.livebooks2.R
 import dev.ferrazpedro.livebooks2.domain.entities.Livros
+import dev.ferrazpedro.livebooks2.presentation.ClickableItem
 import kotlinx.android.synthetic.main.item_card.view.*
 
-class LojaAdapter(
-    val listaLivro: List<Livros>
-) :
-    RecyclerView.Adapter<LojaAdapter.MyViewHolder>() {
+class LojaAdapter(val listaLivro: List<Livros>, private val ClickListener: ClickableItem.btnClickListener) : RecyclerView.Adapter<LojaAdapter.MyViewHolder>() {
 
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
@@ -37,6 +35,9 @@ class LojaAdapter(
                 .get()
                 .load(item.caminhoImagem)
                 .into(thumbnailHd)
+            btnComprar.setOnClickListener{
+                ClickListener.onBtnClick(position)
+            }
         }
     }
 
